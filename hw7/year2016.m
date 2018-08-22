@@ -3,7 +3,7 @@ function [ m ] = year2016( n )
 %   Detailed explanation goes here
 m = [];
  if ~isscalar(n) || n < 1 || n > 12 || fix(n) ~= n, return, end
-WEEKS = ['Mon'; 'Tue'; 'Wed'; 'Thu'; 'Fri'; 'Sat'; 'Sun'];
+WEEK = ['Mon'; 'Tue'; 'Wed'; 'Thu'; 'Fri'; 'Sat'; 'Sun'];
 switch n
     case 1
         month = 'January';
@@ -47,7 +47,7 @@ start = 4+sum(vdays(1:n-1));
 for i = 1:days
     m(i).month = month;
     m(i).date = i;
-    m(i).day = WEEKS(mod(i+start-1,7)+1, :);
+    m(i).day = WEEK(mod(i+start-1,7)+1, :);
 end
 end
 
